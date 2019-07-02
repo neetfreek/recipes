@@ -1,4 +1,5 @@
 import React from 'react';
+import './Recipes.css';
 import listComponentFromArray from './Helper';
 import RecipeCollection from './data/RecipeCollection';
 
@@ -52,13 +53,13 @@ import RecipeCollection from './data/RecipeCollection';
         return (
            <div onClick={() => this.handleClick()}>
              <div className="buttonsCollection">
-                <button onClick={() => this.updateRecipe(RecipeCollection.recipes[0])}>
+                <button class="button" onClick={() => this.updateRecipe(RecipeCollection.recipes[0])}>
                   Banana Ice Cream
                 </button>
-                <button onClick={() => this.updateRecipe(RecipeCollection.recipes[1])}>
+                <button class="button" onClick={() => this.updateRecipe(RecipeCollection.recipes[1])}>
                   Stew
                 </button>
-                <button onClick={() => this.updateRecipe(RecipeCollection.recipes[2])}>
+                <button class="button" onClick={() => this.updateRecipe(RecipeCollection.recipes[2])}>
                   Goat's Head Soup
                 </button>
             </div>
