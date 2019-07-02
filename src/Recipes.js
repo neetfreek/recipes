@@ -15,7 +15,7 @@ import RecipeCollection from './data/RecipeCollection';
         this.handleClick = this.handleClick.bind(this);
       }
     
-      handleClick(recipeUpdated) {
+      handleClick() {
         if (this.state.name == ""){
           this.setState(state => ({
             isToggleOn: !state.isToggleOn,
@@ -52,18 +52,18 @@ import RecipeCollection from './data/RecipeCollection';
         return (
            <div onClick={() => this.handleClick()}>
              <div className="buttonsCollection">
-              <button onClick={() => this.updateRecipe(RecipeCollection.recipes[0])}>
-                Banana Ice Cream
-              </button>
-              <button onClick={() => this.updateRecipe(RecipeCollection.recipes[1])}>
-                Stew
-              </button>
-              <button onClick={() => this.updateRecipe(RecipeCollection.recipes[2])}>
-                Goat's Head Soup
-              </button>
+                <button onClick={() => this.updateRecipe(RecipeCollection.recipes[0])}>
+                  Banana Ice Cream
+                </button>
+                <button onClick={() => this.updateRecipe(RecipeCollection.recipes[1])}>
+                  Stew
+                </button>
+                <button onClick={() => this.updateRecipe(RecipeCollection.recipes[2])}>
+                  Goat's Head Soup
+                </button>
             </div>
             <div>
-              {this.recipeCurrent()}
+                {this.recipeCurrent()}
             </div>          
           </div>
         );
