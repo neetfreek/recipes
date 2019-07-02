@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeCollection from './data/RecipeCollection'
 
    class Recipes extends React.Component {
       constructor(props) {
@@ -65,17 +66,21 @@ import React from 'react';
     
       render() {
         return (
-           <div>
-          <button onClick={() => this.handleClick("Banana ice cream recipe")}>
-            Banana Ice Cream
-          </button>
-          <button onClick={() => this.handleClick("Stew recipe")}>
-            Stew
-          </button>
-          <button onClick={() => this.handleClick("Goat's Head Soup recipe")}>
-            Goat's Head Soup
-          </button>
-          <p>{this.state.recipe}</p>
+           <div onClick={() => this.handleClick()}>
+             <div className="buttonsCollection">
+              <button onClick={() => this.updateRecipe(RecipeCollection.recipes[0])}>
+                Banana Ice Cream
+              </button>
+              <button onClick={() => this.updateRecipe(RecipeCollection.recipes[1])}>
+                Stew
+              </button>
+              <button onClick={() => this.updateRecipe(RecipeCollection.recipes[2])}>
+                Goat's Head Soup
+              </button>
+            </div>
+            <div>
+              {this.recipeCurrent()}
+            </div>          
           </div>
         );
       }
