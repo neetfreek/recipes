@@ -1,0 +1,22 @@
+{
+    "recipes": [
+        {
+         "name": "Banana Ice Cream",
+         "description": "Yummy!",
+         "ingredients": ["Bananas", "Oat milk"],
+         "instructions": "Freeze, blend with oat milk."
+        },
+        {
+            "name": "Stew",
+            "description": "Watery, but good!",
+            "ingredients": ["Pieces of meat", "Pieces of vegetable", "Water"],
+            "instructions": "Put it all in a pot. Simmer it for ages."
+        },
+        {
+            "name": "Goat's Head Soup",
+            "description": "Bleeting good!",
+            "ingredients": ["Goats' Heads", "Water"],
+            "instructions": "Plonk your bleeting meat into the pot, boil for quite some time."
+        }
+    ]
+}
