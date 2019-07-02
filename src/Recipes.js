@@ -14,6 +14,13 @@ import React from 'react';
       }
     
       handleClick(recipeUpdated) {
+        if (this.state.name == ""){
+          this.setState(state => ({
+            isToggleOn: !state.isToggleOn,
+          }));
+        }
+      }
+
         this.setState(state => ({
           isToggleOn: !state.isToggleOn,
           recipe: recipeUpdated,
