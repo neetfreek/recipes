@@ -29,6 +29,23 @@ import React from 'react';
           instructions: recipe.instructions,
         }));
       }
+
+      updateIngredientsList(){
+        const ingredients = this.state.ingredients;
+        var listIngredients = [];
+
+        for(var counter = 0; counter < ingredients.length; counter++){
+          var textIngredient = ingredients[counter];
+          var listItem = React.createElement('li', {}, textIngredient);
+          listIngredients.push(listItem);
+        }
+        var listElement = React.createElement('ul', {}, [listIngredients]);
+        var listContainer = React.createElement('div', {className: "listIngredients"}, [listElement]);
+
+        return (
+          listContainer
+        );
+      }
     
       render() {
         return (
