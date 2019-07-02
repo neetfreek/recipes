@@ -46,6 +46,22 @@ import React from 'react';
           listContainer
         );
       }
+
+      recipeCurrent(){
+        if (this.state.isToggleOn){
+          return(
+            <div className="recipe">
+            <h1>{this.state.name}</h1>
+            <h2>Description</h2>
+            <p>{this.state.description}</p>
+            <h2>Ingredients</h2>
+            <p>{this.updateIngredientsList()}</p>
+            <h2>Instructions</h2>
+            <div>{this.state.instructions}</div>
+            </div>
+          );
+        }
+      }
     
       render() {
         return (
