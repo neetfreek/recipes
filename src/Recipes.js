@@ -1,5 +1,6 @@
 import React from 'react';
-import RecipeCollection from './data/RecipeCollection'
+import listComponentFromArray from './Helper';
+import RecipeCollection from './data/RecipeCollection';
 
    class Recipes extends React.Component {
       constructor(props) {
@@ -31,23 +32,6 @@ import RecipeCollection from './data/RecipeCollection'
         }));
       }
 
-      updateIngredientsList(){
-        const ingredients = this.state.ingredients;
-        var listIngredients = [];
-
-        for(var counter = 0; counter < ingredients.length; counter++){
-          var textIngredient = ingredients[counter];
-          var listItem = React.createElement('li', {}, textIngredient);
-          listIngredients.push(listItem);
-        }
-        var listElement = React.createElement('ul', {}, [listIngredients]);
-        var listContainer = React.createElement('div', {className: "listIngredients"}, [listElement]);
-
-        return (
-          listContainer
-        );
-      }
-
       recipeCurrent(){
         if (this.state.isToggleOn){
           return(
@@ -56,7 +40,7 @@ import RecipeCollection from './data/RecipeCollection'
             <h2>Description</h2>
             <p>{this.state.description}</p>
             <h2>Ingredients</h2>
-            <p>{this.updateIngredientsList()}</p>
+            <p>{listComponentFromArray(this.state.ingredients)}</p>
             <h2>Instructions</h2>
             <div>{this.state.instructions}</div>
             </div>
