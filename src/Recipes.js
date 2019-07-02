@@ -21,9 +21,12 @@ import React from 'react';
         }
       }
 
+      updateRecipe(recipe){
         this.setState(state => ({
-          isToggleOn: !state.isToggleOn,
-          recipe: recipeUpdated,
+          name: recipe.name,
+          description: recipe.description,
+          ingredients: recipe.ingredients,
+          instructions: recipe.instructions,
         }));
       }
     
