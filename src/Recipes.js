@@ -4,8 +4,12 @@ import React from 'react';
       constructor(props) {
         super(props);
         this.state = {
-           recipe: "Select a recipe above"};
-    
+          name: "",
+          description: "",
+          ingredients: "",
+          instructions: "",
+        };
+        
         this.handleClick = this.handleClick.bind(this);
       }
     
