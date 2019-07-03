@@ -20,6 +20,7 @@ class Form extends React.Component{
         alert(`1. submitted ${this.state.textField} to field`);
         this.setState({
             textSubmitted: this.state.textField,
+            textField: "",
         });
         this.props.callbackFromParent(this.state.textField);
         event.preventDefault();
