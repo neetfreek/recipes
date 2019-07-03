@@ -1,4 +1,5 @@
 import React from 'react';
+import { isTSTypeAliasDeclaration } from '@babel/types';
 
 class Form extends React.Component{
     constructor(props){
@@ -7,17 +8,15 @@ class Form extends React.Component{
             textField: "",
             textSubmitted: "",
           };
-
         this.onChange= this.onChange.bind(this);
-        this.onSubmit= this.onSubmit.bind(this);
     }
 
-    onChange = event => {
+    onChange = (event) => {
         this.setState({textField: event.target.value
         });
     }
 
-    onSubmit = event => {
+    onSubmit = (event) => {
         alert(`1. submitted ${this.state.textField} to field`);
         this.setState({
             textSubmitted: this.state.textField,

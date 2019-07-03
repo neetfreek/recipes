@@ -16,7 +16,7 @@ import {findItemByName} from './Helper';
           ingredients: "",
           instructions: "",
         };
-        
+
         this.handleClick = this.handleClick.bind(this);
       }
     
@@ -69,13 +69,13 @@ import {findItemByName} from './Helper';
            <div>
              <Form callbackFromParent={this.callbackFromRecipes}/>
              <div className="buttonsCollection" onClick={() => this.handleClick()}>
-                <button class="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
+                <button className="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream
                 </button>
-                <button class="button" onClick={() => this.searchRecipes("Goat's Head Soup")}>
+                <button className="button" onClick={() => this.searchRecipes("Goat's Head Soup")}>
                   Goat's Head Soup
                 </button>
-                <button class="button" onClick={() => this.searchRecipes("Stew")}>
+                <button className="button" onClick={() => this.searchRecipes("Stew")}>
                   Stew
                 </button>
             </div>
