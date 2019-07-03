@@ -53,6 +53,10 @@ import {findItemByName} from './Helper';
           );
         }
       }
+
+      callbackFromRecipes = (textSubmitted) => {
+        alert(`2. Received callback from field with data: ${textSubmitted}`);
+      }
     
       searchRecipes(recipe){        
         alert(`Received call to search for ${recipe}`);
@@ -63,7 +67,7 @@ import {findItemByName} from './Helper';
       render() {
         return (
            <div>
-             <Form/>
+             <Form callbackFromParent={this.callbackFromRecipes}/>
              <div className="buttonsCollection" onClick={() => this.handleClick()}>
                 <button class="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream

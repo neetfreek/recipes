@@ -18,9 +18,11 @@ class Form extends React.Component{
     }
 
     onSubmit = event => {
+        alert(`1. submitted ${this.state.textField} to field`);
         this.setState({
             textSubmitted: this.state.textField,
         });
+        this.props.callbackFromParent(this.state.textField);
         event.preventDefault();
     }
 
