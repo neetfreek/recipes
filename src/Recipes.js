@@ -9,6 +9,7 @@ import {findItemByName} from './Helper';
       constructor(props) {
         super(props);
         this.state = {
+          searchText: "",
           recipe: "",
           name: "",
           description: "",
@@ -54,6 +55,7 @@ import {findItemByName} from './Helper';
       }
     
       searchRecipes(recipe){        
+        alert(`Received call to search for ${recipe}`);
         var recipeReturned = findItemByName(RecipeCollection.recipes, recipe);
         this.updateRecipe(recipeReturned);
       }
