@@ -7,11 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.buttonsCollection{
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -29,6 +24,5 @@ code {
 .listIngredients {
   display: table;
   margin:0 auto;
-  align-items: left;
-  text-align: left;
+  align-items: left;  
 }
