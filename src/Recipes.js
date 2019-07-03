@@ -2,11 +2,13 @@ import React from 'react';
 import './Recipes.css';
 import listComponentFromArray from './Helper';
 import RecipeCollection from './data/RecipeCollection';
+import {findItemByName} from './Helper';
 
    class Recipes extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
+          recipe: "",
           name: "",
           description: "",
           ingredients: "",
@@ -26,6 +28,7 @@ import RecipeCollection from './data/RecipeCollection';
 
       updateRecipe(recipe){
         this.setState(state => ({
+          recipe: recipe,
           name: recipe.name,
           description: recipe.description,
           ingredients: recipe.ingredients,
@@ -49,18 +52,23 @@ import RecipeCollection from './data/RecipeCollection';
         }
       }
     
+      searchRecipes(recipe){        
+        var recipeReturned = findItemByName(RecipeCollection.recipes, recipe);
+        this.updateRecipe(recipeReturned);
+      }
+
       render() {
         return (
            <div onClick={() => this.handleClick()}>
              <div className="buttonsCollection">
-                <button class="button" onClick={() => this.updateRecipe(RecipeCollection.recipes[0])}>
+                <button class="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream
                 </button>
-                <button class="button" onClick={() => this.updateRecipe(RecipeCollection.recipes[1])}>
-                  Stew
-                </button>
-                <button class="button" onClick={() => this.updateRecipe(RecipeCollection.recipes[2])}>
+                <button class="button" onClick={() => this.searchRecipes("Goat's Head Soup")}>
                   Goat's Head Soup
+                </button>
+                <button class="button" onClick={() => this.searchRecipes("Stew")}>
+                  Stew
                 </button>
             </div>
             <div>
