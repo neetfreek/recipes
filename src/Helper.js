@@ -23,6 +23,7 @@ function listComponentFromArray(array){
         return array[counter];
       }
     }
+    return null;
   }    
 
   export default listComponentFromArray;
