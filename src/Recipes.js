@@ -16,18 +16,23 @@ import {findItemByName} from './Helper';
           ingredients: "",
           instructions: "",
         };
-
-        this.handleClick = this.handleClick.bind(this);
       }
     
-      handleClick() {
-        if (this.state.name == ""){
+      // Toggle recipe elements on-screen
+      toggleRecipe(on){
+        if (on){
           this.setState(state => ({
-            isToggleOn: !state.isToggleOn,
-          }));
+            isToggleOn: true,
+          }))
+        }
+        else {
+          this.setState(state => ({
+            isToggleOn: false,
+          }))
         }
       }
 
+      // Update recipe-relate states 
       updateRecipe(recipe){
         this.setState(state => ({
           recipe: recipe,
@@ -38,6 +43,7 @@ import {findItemByName} from './Helper';
         }));
       }
 
+      // Visible elements for recipe on-screen
       recipeCurrent(){
         if (this.state.isToggleOn){
           return(
@@ -54,21 +60,39 @@ import {findItemByName} from './Helper';
         }
       }
 
+      // Callback for Form component submission
       callbackFromRecipes = (textSubmitted) => {
-        alert(`2. Received callback from field with data: ${textSubmitted}`);
+        if (this.recipeExists(textSubmitted)){
+          // this.handleClick();
+          var nameRecipe = textSubmitted;
+          this.searchRecipes(nameRecipe);
+        }
       }
     
-      searchRecipes(recipe){        
-        alert(`Received call to search for ${recipe}`);
+      // Return recipe from Recipes JSON recipes array
+      searchRecipes(recipe){     
+        if (this.recipeExists(recipe)){
+          var recipeReturned = findItemByName(RecipeCollection.recipes, recipe);
+          this.updateRecipe(recipeReturned);   
+        }        
+      }
+      
+      // Return whether submitted recipe exists in JSON data
+      recipeExists(recipe){
         var recipeReturned = findItemByName(RecipeCollection.recipes, recipe);
-        this.updateRecipe(recipeReturned);
+        if (recipeReturned != null){       
+          this.toggleRecipe(true);   
+          return true;
+        }
+        this.toggleRecipe(false);
+        return false;
       }
 
       render() {
         return (
            <div>
              <Form callbackFromParent={this.callbackFromRecipes}/>
-             <div className="buttonsCollection" onClick={() => this.handleClick()}>
+             <div className="buttonsCollection">
                 <button className="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream
                 </button>
