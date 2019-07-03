@@ -2,6 +2,7 @@ import React from 'react';
 import './Recipes.css';
 import listComponentFromArray from './Helper';
 import RecipeCollection from './data/RecipeCollection';
+import Form from './Form';
 import {findItemByName} from './Helper';
 
    class Recipes extends React.Component {
@@ -59,8 +60,9 @@ import {findItemByName} from './Helper';
 
       render() {
         return (
-           <div onClick={() => this.handleClick()}>
-             <div className="buttonsCollection">
+           <div>
+             <Form/>
+             <div className="buttonsCollection" onClick={() => this.handleClick()}>
                 <button class="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream
                 </button>
