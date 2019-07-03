@@ -4,7 +4,7 @@ function listComponentFromArray(array){
     const list = array;
     var listArray = [];
 
-    for(var counter = 0; counter < list.length; counter++){
+    for (var counter = 0; counter < list.length; counter++){
       var itemName = list[counter];
       var listItem = React.createElement('li', {}, itemName);
       listArray.push(listItem);
@@ -16,5 +16,13 @@ function listComponentFromArray(array){
       listContainer
     );
   }
+
+  export function findItemByName(array, nameItem){
+    for (var counter = 0; counter < array.length; counter++){
+      if (array[counter].name == nameItem){
+        return array[counter];
+      }
+    }
+  }    
 
   export default listComponentFromArray;
