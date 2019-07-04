@@ -5,6 +5,7 @@ import RecipeCollection from './data/RecipeCollection';
 import Form from './Form';
 import {findItemByName} from './Helper';
 import {itemExists} from './Helper';
+import {closestMatch} from './Helper';
 
    class Recipes extends React.Component {
       constructor(props) {

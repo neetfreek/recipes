@@ -21,9 +21,14 @@ function listComponentFromArray(array, className){
     for (var counter = 0; counter < array.length; counter++){
         if (array[counter].name === nameItem){
           return true;
+    // Return closest matching item name if any exist
+    export function closestMatch(array, nameItemPartial){
+        var matches = [];
+        for (var counter = 0; counter < array.length; counter++){
+            if (array[counter].name.indexOf(nameItemPartial) === 0){
+            return array[counter].name;
+            }
         }
-      }
-      return false;
     }
 
   export default listComponentFromArray;
