@@ -13,6 +13,7 @@ class Form extends React.Component{
     onChange = (event) => {
         this.setState({textField: event.target.value
         });
+        this.props.callbackFromParentChange(event.target.value);
     }
 
     onSubmit = (event) => {
@@ -20,7 +21,7 @@ class Form extends React.Component{
             textSubmitted: this.state.textField,
             textField: "",
         });
-        this.props.callbackFromParent(this.state.textField);
+        this.props.callbackFromParentSubmit(this.state.textField);
         event.preventDefault();
     }
 

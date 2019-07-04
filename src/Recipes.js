@@ -59,10 +59,15 @@ import {itemExists} from './Helper';
             </div>
           );
         }
-      }
+	  }
+	  
+	  // Callback for Form component on user-input field change
+	  callbackFromRecipeChange(textChanged){
+        alert(`Parent sees that form now has ${textChanged} value`);
+	  }
 
-      // Callback for Form component submission
-      callbackFromRecipes = (textSubmitted) => {
+      // Callback for Form component on user-input field submit
+      callbackFromRecipesSubmit = (textSubmitted) => {
         if (itemExists(RecipeCollection.recipes, textSubmitted)){
           this.searchRecipes(textSubmitted);
 		}
@@ -86,7 +91,7 @@ import {itemExists} from './Helper';
       render() {
         return (
            <div>
-             <Form callbackFromParent={this.callbackFromRecipes}/>
+             <Form callbackFromParentChange={this.callbackFromRecipeChange} callbackFromParentSubmit={this.callbackFromRecipesSubmit}/>
              <div className="buttonsCollection">
                 <button className="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream
