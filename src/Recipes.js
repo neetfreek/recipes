@@ -63,7 +63,14 @@ import {itemExists} from './Helper';
 	  
 	  // Callback for Form component on user-input field change
 	  callbackFromRecipeChange(textChanged){
-        alert(`Parent sees that form now has ${textChanged} value`);
+
+		if (/^[a-z]/i.test(textChanged)){
+			var match = closestMatch(RecipeCollection.recipes, textChanged);
+			if (match){
+				var textChangedSuffix = match.substring(textChanged.length);
+				alert(`Add ${textChangedSuffix} in grey after ${textChanged}`);
+			}
+		  }
 	  }
 
       // Callback for Form component on user-input field submit
