@@ -99,7 +99,10 @@ import {closestMatch} from './Helper';
       render() {
         return (
            <div>
-             <Form callbackFromParentChange={this.callbackFromRecipeChange} callbackFromParentSubmit={this.callbackFromRecipesSubmit}/>
+			 <Form 
+			 callbackFromParentChange={this.callbackFromRecipeChange} 
+			 callbackFromParentSubmit={this.callbackFromRecipesSubmit}			 
+			 />
              <div className="buttonsCollection">
                 <button className="button" onClick={() => this.searchRecipes("Banana Ice Cream")}>
                   Banana Ice Cream
