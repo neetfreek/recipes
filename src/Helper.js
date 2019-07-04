@@ -1,10 +1,10 @@
 import React from 'react';
 
-function listComponentFromArray(array){
+function listComponentFromArray(array, className){
     const listItems = array.map((item, index) => <li key={index}>{item}</li>);
 
     return (
-        <div className="listIngredients"><ul>{listItems}</ul></div>
+        <div className={className}><ul>{listItems}</ul></div>
     );
   }
 

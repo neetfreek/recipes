@@ -53,7 +53,7 @@ import {itemExists} from './Helper';
             <h2>Description</h2>
             <p>{this.state.description}</p>
             <h2>Ingredients</h2>
-            {listComponentFromArray(this.state.ingredients)}
+            {listComponentFromArray(this.state.ingredients, "listIngredients")}
             <h2>Instructions</h2>
             <div>{this.state.instructions}</div>
             </div>
