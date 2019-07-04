@@ -26,4 +26,13 @@ function listComponentFromArray(array){
     return null;
   }    
 
+  export function itemExists(array, nameItem){
+    for (var counter = 0; counter < array.length; counter++){
+        if (array[counter].name === nameItem){
+          return true;
+        }
+      }
+      return false;
+    }
+
   export default listComponentFromArray;

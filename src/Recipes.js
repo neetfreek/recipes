@@ -4,6 +4,7 @@ import listComponentFromArray from './Helper';
 import RecipeCollection from './data/RecipeCollection';
 import Form from './Form';
 import {findItemByName} from './Helper';
+import {itemExists} from './Helper';
 
    class Recipes extends React.Component {
       constructor(props) {
@@ -52,7 +53,7 @@ import {findItemByName} from './Helper';
             <h2>Description</h2>
             <p>{this.state.description}</p>
             <h2>Ingredients</h2>
-            <p>{listComponentFromArray(this.state.ingredients)}</p>
+            {listComponentFromArray(this.state.ingredients)}
             <h2>Instructions</h2>
             <div>{this.state.instructions}</div>
             </div>
@@ -62,32 +63,26 @@ import {findItemByName} from './Helper';
 
       // Callback for Form component submission
       callbackFromRecipes = (textSubmitted) => {
-        if (this.recipeExists(textSubmitted)){
-          // this.handleClick();
-          var nameRecipe = textSubmitted;
-          this.searchRecipes(nameRecipe);
-        }
+        if (itemExists(RecipeCollection.recipes, textSubmitted)){
+          this.searchRecipes(textSubmitted);
+		}
+		else {
+			this.toggleRecipe(false);
+		}
       }
     
       // Return recipe from Recipes JSON recipes array
       searchRecipes(recipe){     
-        if (this.recipeExists(recipe)){
+        if (itemExists(RecipeCollection.recipes, recipe)){
+		  this.toggleRecipe(true);   
           var recipeReturned = findItemByName(RecipeCollection.recipes, recipe);
           this.updateRecipe(recipeReturned);   
-        }        
+		}        
+		else {
+			this.toggleRecipe(false);
+		}
       }
       
-      // Return whether submitted recipe exists in JSON data
-      recipeExists(recipe){
-        var recipeReturned = findItemByName(RecipeCollection.recipes, recipe);
-        if (recipeReturned != null){       
-          this.toggleRecipe(true);   
-          return true;
-        }
-        this.toggleRecipe(false);
-        return false;
-      }
-
       render() {
         return (
            <div>
@@ -105,7 +100,7 @@ import {findItemByName} from './Helper';
             </div>
             <div>
                 {this.recipeCurrent()}
-            </div>          
+            </div>        
           </div>
         );
       }
